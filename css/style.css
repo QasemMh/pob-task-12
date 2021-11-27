@@ -5,6 +5,10 @@
 }
 @import url(https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;800;900&display=swap);
 
+:root {
+  font-size: 16px;
+  --angle: 0deg;
+}
 body {
   font-family: "Poppins", sans-serif;
   min-height: 600px;
@@ -25,6 +29,7 @@ body {
   border-radius: 0 0 0 4px;
   transform: translateX(200px);
   transition: transform 0.3s ease;
+  z-index: 5;
 }
 .options a {
   text-decoration: none;
@@ -60,6 +65,8 @@ body {
   box-shadow: -4px 4px 0px var(--bg-secondary);
 
   transform: translateX(0);
+  z-index: 5;
+
   transition: transform 0.3s ease;
 }
 .options .btn-style:hover {
@@ -72,10 +79,215 @@ body {
   place-items: center;
 }
 
+/* header */
+.header {
+  min-height: 90vh;
+  padding: 10vh;
+  display: grid;
+  place-items: center;
+  font-size: clamp(1rem, 3rem, 5rem);
+  color: #282828;
+  font-weight: bold;
+  letter-spacing: 4px;
+  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+}
+/* cards */
+.cards {
+  background-image: linear-gradient(
+    to top,
+    #fdcbf1 0%,
+    #fdcbf1 1%,
+    #e6dee9 100%
+  );
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 30px;
+}
+.cards .card {
+  max-width: 300px;
+  height: 215px;
+  position: relative;
+  background: #fff;
+  margin: 30px 10px;
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  transition: height 0.3s ease-in-out;
+  z-index: 3;
+}
+.cards .card::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  bottom: -2px;
+  right: -2px;
+  background: linear-gradient(to right, red, purple);
+  z-index: -1;
+}
+.cards .card:last-child::before {
+  background: linear-gradient(to bottom, red, purple);
+}
+.cards .card:nth-child(2):before {
+  background: linear-gradient(to top, red, purple);
+}
+
+.cards .card::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  bottom: 2px;
+  right: 2px;
+  background: #fff;
+  z-index: -1;
+}
+.cards .card:hover {
+  height: 420px;
+}
+.cards .image {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  border-radius: 4px;
+  top: -60px;
+  left: 5px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+}
+img {
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.cards .text {
+  position: relative;
+  margin-top: -140px;
+  padding: 10px 15px;
+  color: #111;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+.card:hover .text {
+  opacity: 1;
+  margin-top: -40px;
+  transition-delay: 0.3s;
+  visibility: visible;
+  line-height: 1.5;
+  font-weight: 100;
+}
+/* footer */
+footer {
+  min-height: 300px;
+  padding: 20px;
+  background: rgba(170, 238, 255, 0.685);
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.footer h2 {
+  width: 500px;
+  margin-bottom: 2rem;
+}
+.footer .map {
+  width: 300px;
+  margin-bottom: 2rem;
+}
+.footer .social {
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 30px 0;
+  padding-bottom: 100px;
+}
+/* social */
+.wrapper .button {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+  margin: 0 5px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:hover {
+  width: 200px;
+}
+.wrapper .button:first-child {
+  width: 200px;
+}
+.wrapper .button .icon {
+  float: left;
+  display: inline;
+  height: 60px;
+  width: 60px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:nth-child(1):hover .icon {
+  background: #4267b2;
+}
+.wrapper .button:nth-child(2):hover .icon {
+  background: #1da1f2;
+}
+.wrapper .button:nth-child(3):hover .icon {
+  background: #e1306c;
+}
+.wrapper .button:nth-child(4):hover .icon {
+  background: #333;
+}
+.wrapper .button:nth-child(5):hover .icon {
+  background: #ff0000;
+}
+.wrapper .button .icon i {
+  font-size: 25px;
+  line-height: 60px;
+  transition: all 0.3s ease-out;
+}
+.wrapper .button:hover .icon i {
+  color: #fff;
+}
+.wrapper .button span {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 60px;
+  margin-left: 10px;
+  transition: all 0.3s ease-out;
+}
+
+.wrapper.tow .button span {
+  display: none;
+}
+.wrapper.tow .button:hover {
+  width: 60px;
+  transform: translateY(-15px);
+  transition: transform 0.3s ease;
+}
+.wrapper.tow .button:first-child {
+  width: 60px;
+}
+/* end social */
+
 /* navbar-1 1 */
 .main {
   margin-left: 5rem;
-  padding: 1rem;
+  padding-left: 0.2rem;
 }
 .navbar-1 p {
   line-height: 1.5;
@@ -222,11 +434,78 @@ i {
   white-space: nowrap;
 }
 /*end  navbar 2 */
+/* navbar 3 */
+.navbar-3 li,
+.navbar-3 a,
+.navbar-3 button {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+.navbar-3 .menu {
+  display: none;
+}
+.navbar-3 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  height: 80px;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
 
+  position: relative;
+}
+.navbar-3 .logo:hover a {
+  color: var(--text-secondary);
+}
+.navbar-3 .navbar-nav {
+  list-style-type: none;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-3 .nav-item {
+  padding: 0px 20px;
+  display: inline-block;
+}
+.navbar-3 .nav-link {
+  transition: color 0.3s ease;
+}
+.navbar-3 .nav-link:hover {
+  color: var(--text-secondary);
+}
+.navbar-3 button {
+  padding: 9px 25px;
+  background: rgba(0, 136, 269, 0.5);
+  border-radius: 54px;
+  border: 1px solid var(--text-primary);
+  color: #fff;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+.navbar-3 button:hover {
+  background: rgba(0, 136, 269, 0.9);
+}
+/* end navbar 3 */
+
+/*
+*
+*
+*
+*
+*/
+/* MEDIA QUERY */
 /* Small screens */
-
-/* navbar-1 */
 @media only screen and (max-width: 600px) {
+  .main {
+    margin: 0;
+    padding: 0;
+  }
+  /* navbar-1 */
   .navbar-1 {
     bottom: 0;
     width: 100vw;
@@ -272,15 +551,24 @@ i {
 }
 
 @media only screen and (max-width: 768px) {
-  .navbar-2 .navbar-nav {
+  .navbar-2 .navbar-nav,
+  .navbar-3 .navbar-nav {
     position: fixed;
     background: var(--bg-primary);
     height: 100vh;
     width: 100%;
     flex-direction: column;
     display: none;
+    top: 0;
+    left: 0;
   }
-  .navbar-2 .menu {
+
+  .navbar-3 .navbar-nav {
+    height: 0;
+    clip-path: none;
+  }
+  .navbar-2 .menu,
+  .navbar-3 .menu {
     position: fixed;
     display: block;
     color: var(--text-primary);
@@ -293,11 +581,19 @@ i {
     cursor: pointer;
     z-index: 3;
   }
-  .navbar-2 .navbar-nav.open {
+  .navbar-3 .menu {
+    top: 10px;
+  }
+  .navbar-2 .navbar-nav.open,
+  .navbar-3 .navbar-nav.open {
     display: flex;
     justify-content: center;
     z-index: 2;
     animation: show-nav 0.5s ease forwards;
+  }
+  .navbar-3 .navbar-nav.open {
+    animation: none;
+    animation: show-nav2 0.5s ease forwards;
   }
 
   @keyframes show-nav {
@@ -309,11 +605,20 @@ i {
       clip-path: circle(120% at 120% 0);
     }
   }
-
-  .navbar-2 .nav-item {
+  @keyframes show-nav2 {
+    0% {
+      min-height: 80px;
+    }
+    100% {
+      min-height: 100vh;
+    }
+  }
+  .navbar-2 .nav-item,
+  .navbar-3 .nav-item {
     margin-top: 4rem;
   }
-  .navbar-2 .nav-link {
+  .navbar-2 .nav-link,
+  .navbar-3 .nav-link {
     padding: 20px 40px;
     font-size: clamp(1rem, 1.5rem, 2rem);
     box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
@@ -323,8 +628,13 @@ i {
     background: var(--bg-secondary);
     color: var(--text-secondary);
   }
+
+  /* navbar 3 */
 }
+
 /* Large screens */
+
+/* navbar 2 */
 @media only screen and (min-width: 600px) {
   .navbar-1 {
     top: 0;
@@ -370,4 +680,11 @@ i {
   --bg-secondary: #f5e5b8;
 }
 
-/* end navbar-1 1 */
+.navbar-3,
+.navbar-2 {
+  display: none;
+}
+.navbar-1 {
+  display: flex;
+  z-index: 5;
+}
